@@ -1,6 +1,6 @@
-# gerenciador_despesas
+# gerenciador_de_despesas
 
-Gerencie suas despesas em apenas alguns cliques.
+Gerencie suas despesas em alguns cliques
 
 ## Getting Started
 
