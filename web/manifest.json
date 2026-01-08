@@ -1,11 +1,11 @@
 {
-    "name": "gerenciador_despesas",
-    "short_name": "gerenciador_despesas",
+    "name": "gerenciador_de_despesas",
+    "short_name": "gerenciador_de_despesas",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Gerencie suas despesas em apenas alguns cliques.",
+    "description": "Gerencie suas despesas em alguns cliques",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "jums.apps.gerenciador_despesas"
+    namespace = "com.example.gerenciador_de_despesas"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "jums.apps.gerenciador_despesas"
+        applicationId = "com.example.gerenciador_de_despesas"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
