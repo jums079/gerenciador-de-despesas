@@ -34,15 +34,34 @@ class HomePage extends StatelessWidget {
           itemCount: controller.expenses.length,
           itemBuilder: (context, index) {
             final expense = controller.expenses[index];
-            return ListTile(
+            return ExpansionTile(
               title: Text(expense.name),
-              subtitle: Text(
-                'R\$ ${expense.value.toStringAsFixed(2)} - ${expense.responsible} - ${expense.card} - ${expense.parcels}x',
-              ),
-              onTap: () {
-                // ação ao clicar (opcional)
-                debugPrint('Clicou: $expense');
-              },
+              subtitle: Text('R\$ ${expense.value.toStringAsFixed(2)}'),
+              children: [
+                Text('Responsável: ${expense.responsible}'),
+                Text('Cartão: ${expense.card}'),
+                Text('Parcelas: ${expense.parcels}'),
+                Obx(
+                  () => Row(
+                    children: [
+                      Text('Parcelas pagas:'),
+                      IconButton(
+                        onPressed: () {
+                          controller.incrementPaidParcels(expense);
+                        },
+                        icon: Icon(Icons.add),
+                      ),
+                      Text('${expense.paidParcels}'),
+                      IconButton(
+                        onPressed: () {
+                          controller.decrementPaidParcels(expense);
+                        },
+                        icon: Icon(Icons.remove),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             );
           },
         );
