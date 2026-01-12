@@ -41,14 +41,14 @@ class DialogAddExpense extends StatelessWidget {
             TextField(
               decoration: const InputDecoration(
                 labelText: 'Cartão',
-                hintText: 'Inter',
+                hintText: 'Opcional',
               ),
               controller: controller.cardController,
             ),
             TextField(
               decoration: const InputDecoration(
                 labelText: 'Parcelas',
-                hintText: '3',
+                hintText: 'Opcional',
               ),
               keyboardType: TextInputType.number,
               controller: controller.parcelController,

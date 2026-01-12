@@ -21,6 +21,20 @@ class HomePageController extends GetxController {
     super.onClose();
   }
 
+  void incrementPaidParcels(Expense expense) {
+    if (expense.parcels > expense.paidParcels.value) {
+      expense.paidParcels.value++;
+      expenses.refresh();
+    }
+  }
+
+  void decrementPaidParcels(Expense expense) {
+    if (expense.parcels > 0 && expense.paidParcels.value > 0) {
+      expense.paidParcels.value--;
+      expenses.refresh();
+    }
+  }
+
   void addExpense() {
     final name = nameController.text.trim();
     final responsible = responsibleController.text.trim();
@@ -39,5 +53,10 @@ class HomePageController extends GetxController {
     expenses.add(
       Expense(name, value, responsible, card, parcels < 1 ? 1 : parcels),
     );
+    nameController.clear();
+    valueController.clear();
+    responsibleController.clear();
+    cardController.clear();
+    parcelController.clear();
   }
 }
