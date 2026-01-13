@@ -39,10 +39,20 @@ class HomePage extends StatelessWidget {
               subtitle: Text('R\$ ${expense.value.toStringAsFixed(2)}'),
               children: [
                 Text('Responsável: ${expense.responsible}'),
-                Text('Cartão: ${expense.card}'),
-                Text('Parcelas: ${expense.parcels}'),
-                Obx(
-                  () => Row(
+                Text('Tipo de pagamento: ${controller.selectedPayment.value}'),
+
+                Obx(() {
+                  if (controller.selectedPayment.value != 'Crédito') {
+                    return const SizedBox.shrink();
+                  }
+                  return Text('Parcelas: ${expense.parcels}');
+                }),
+
+                Obx(() {
+                  if (controller.selectedPayment.value != 'Crédito') {
+                    return const SizedBox.shrink();
+                  }
+                  return Row(
                     children: [
                       Text('Parcelas pagas:'),
                       IconButton(
@@ -59,8 +69,8 @@ class HomePage extends StatelessWidget {
                         icon: Icon(Icons.remove),
                       ),
                     ],
-                  ),
-                ),
+                  );
+                }),
               ],
             );
           },

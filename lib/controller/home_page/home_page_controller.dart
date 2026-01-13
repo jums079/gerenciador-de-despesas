@@ -6,17 +6,19 @@ class HomePageController extends GetxController {
   TextEditingController nameController = TextEditingController();
   TextEditingController valueController = TextEditingController();
   TextEditingController responsibleController = TextEditingController();
-  TextEditingController cardController = TextEditingController();
+  TextEditingController paymentController = TextEditingController();
   TextEditingController parcelController = TextEditingController();
 
   final RxList<Expense> expenses = <Expense>[].obs;
+  final selectedPayment = RxnString();
+  final formKey = GlobalKey<FormState>();
 
   @override
   void onClose() {
     nameController.dispose();
     valueController.dispose();
     responsibleController.dispose();
-    cardController.dispose();
+    paymentController.dispose();
     parcelController.dispose();
     super.onClose();
   }
@@ -38,7 +40,6 @@ class HomePageController extends GetxController {
   void addExpense() {
     final name = nameController.text.trim();
     final responsible = responsibleController.text.trim();
-    final card = cardController.text.trim();
 
     final valueText = valueController.text.trim().replaceAll(',', '.');
     final value = double.tryParse(valueText);
@@ -50,13 +51,11 @@ class HomePageController extends GetxController {
       return;
     }
 
-    expenses.add(
-      Expense(name, value, responsible, card, parcels < 1 ? 1 : parcels),
-    );
+    expenses.add(Expense(name, value, responsible, parcels < 1 ? 1 : parcels));
     nameController.clear();
     valueController.clear();
     responsibleController.clear();
-    cardController.clear();
+    paymentController.clear();
     parcelController.clear();
   }
 }
